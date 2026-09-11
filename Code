@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LearnNext AI — Personalized Learning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="toast" id="toast"></div>
+
+  <header class="navbar">
+    <a class="logo" href="#home" data-page="home">
+      <span class="logo-mark">L</span>
+      <span>LearnNext <b>AI</b></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+    <nav id="navLinks">
+      <a href="#home" data-page="home">Home</a>
+      <a href="#assessment" data-page="assessment">Assessment</a>
+      <a href="#dashboard" data-page="dashboard">Dashboard</a>
+      <a href="#roadmap" data-page="roadmap">Roadmap</a>
+      <a href="#practice" data-page="practice">Practice</a>
+      <button class="nav-cta" data-page="assessment">Start Assessment <span>→</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section class="page active" id="home">
+      <div class="hero container">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pulse"></span> AI-powered learning guidance</div>
+          <h1>Know What to <span>Learn Next.</span></h1>
+          <p>LearnNext AI identifies your learning gaps and creates a personalized path to help you study smarter.</p>
+          <div class="hero-actions">
+            <button class="btn primary" data-page="assessment">Start Assessment <span>→</span></button>
+            <button class="btn secondary" id="demoBtn">Try Demo <span>▶</span></button>
+          </div>
+          <div class="hero-note"><span>✓</span> No login &nbsp; • &nbsp; No paid API &nbsp; • &nbsp; Your data stays in your browser</div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="learning-card">
+            <div class="mini-top"><span>LEARNING INSIGHT</span><span class="spark">✦</span></div>
+            <div class="score-ring" style="--score:72"><span>72<small>%</small></span></div>
+            <h3>Your next focus</h3>
+            <p id="heroFocus">Core Concepts</p>
+            <div class="mini-progress"><i style="width:72%"></i></div>
+            <div class="mini-row"><span>Understanding</span><b>Good start</b></div>
+          </div>
+          <div class="floating-chip chip-a">✦ Personalized</div>
+          <div class="floating-chip chip-b">↗ +24% progress</div>
+          <div class="floating-chip chip-c">✓ 4 topics mapped</div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon blue">⌁</div>
+            <h3>Find Your Weak Areas</h3>
+            <p>Identify topics that need more attention using confidence and recent performance.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon purple">✦</div>
+            <h3>Personalized Roadmap</h3>
+            <p>Get a clear, practical order of what to learn next instead of guessing where to start.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon green">↗</div>
+            <h3>Track Your Progress</h3>
+            <p>See improvement through completed topics, quizzes and your learning progress.</p>
+          </article>
+        </div>
+
+        <div class="start-box">
+          <div>
+            <div class="eyebrow">NEED A STARTING POINT?</div>
+            <h2>I Don't Know Where to Start</h2>
+            <p>Answer four quick questions and get a simple 3-step learning path.</p>
+          </div>
+          <button class="btn light" id="startHereBtn">Start Here <span>→</span></button>
+        </div>
+
+        <div class="section-heading">
+          <div class="eyebrow">HOW IT WORKS</div>
+          <h2>From confusion to a clear next step.</h2>
+        </div>
+        <div class="steps">
+          <div><b>01</b><span>Assess</span></div><i>→</i>
+          <div><b>02</b><span>Analyze</span></div><i>→</i>
+          <div><b>03</b><span>Learn</span></div><i>→</i>
+          <div><b>04</b><span>Practice</span></div><i>→</i>
+          <div><b>05</b><span>Improve</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ASSESSMENT -->
+    <section class="page" id="assessment">
+      <div class="container narrow">
+        <div class="page-heading">
+          <div class="eyebrow">LEARNING ASSESSMENT</div>
+          <h1>Let's understand where you are.</h1>
+          <p>Give us a few details. LearnNext AI will turn them into a focused learning plan.</p>
+        </div>
+        <form id="assessmentForm" class="form-card">
+          <div class="form-grid">
+            <label>Student Name<input id="studentName" type="text" placeholder="e.g. Alex Sharma" required></label>
+            <label>Education Level<select id="educationLevel" required><option value="">Select level</option><option>School</option><option>College</option></select></label>
+            <label>Subject<select id="subject" required><option value="">Select subject</option><option>Mathematics</option><option>Programming</option><option>Science</option><option>English</option></select></label>
+            <label>Topics<input id="topics" type="text" placeholder="e.g. Algebra, Quadratic Equations" required></label>
+            <label>Confidence Level<select id="confidence" required><option value="">Select confidence</option><option>Low</option><option>Medium</option><option>High</option></select></label>
+            <label>Recent Test Score (%)<input id="testScore" type="number" min="0" max="100" placeholder="e.g. 58" required></label>
+            <label>Daily Study Time<select id="studyTime" required><option value="">Select time</option><option>30 minutes</option><option>1 hour</option><option>2 hours</option><option>3+ hours</option></select></label>
+            <label>Learning Goal<input id="goal" type="text" placeholder="e.g. Improve fundamentals / score better" required></label>
+          </div>
+          <div class="form-footer">
+            <span>⌁ Analysis is generated locally — no account required.</span>
+            <button class="btn primary" type="submit">Analyze My Learning <span>→</span></button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ANALYSIS -->
+    <section class="page" id="analysis">
+      <div class="container">
+        <div class="page-heading split-heading">
+          <div><div class="eyebrow">LEARNING GAP ANALYSIS</div><h1>Your learning snapshot.</h1><p id="analysisIntro">Here is what your assessment tells us.</p></div>
+          <button class="btn secondary" data-page="roadmap">View Roadmap <span>→</span></button>
+        </div>
+        <div class="analysis-grid">
+          <article class="score-card">
+            <div class="card-label">OVERALL LEARNING SCORE</div>
+            <div class="big-score" id="overallScore">72<span>%</span></div>
+            <div class="progress-track"><i id="overallBar" style="width:72%"></i></div>
+            <p id="scoreMessage">You have a solid base. A little focused practice can make a big difference.</p>
+          </article>
+          <article class="insight-card strong">
+            <span class="tag success">STRONG AREAS</span>
+            <h3 id="strongArea">Concept Recognition</h3>
+            <p>Keep these areas active with short revision sessions.</p>
+          </article>
+          <article class="insight-card weak">
+            <span class="tag warning">NEEDS IMPROVEMENT</span>
+            <h3 id="weakArea">Core Concepts</h3>
+            <p>Spend your first study block here before moving to advanced topics.</p>
+          </article>
+          <article class="priority-card">
+            <div><span class="tag priority">PRIORITY TOPIC</span><h2 id="priorityTopic">Core Concepts</h2><p id="aiRecommendation">Based on your assessment, strengthen the basics of this topic before moving to advanced concepts.</p></div>
+            <div class="priority-icon">✦</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section class="page" id="roadmap">
+      <div class="container">
+        <div class="page-heading split-heading">
+          <div><div class="eyebrow">PERSONALIZED ROADMAP</div><h1>Your next steps, in order.</h1><p id="roadmapIntro">Complete each step to build momentum.</p></div>
+          <div class="road-progress"><strong id="roadProgressText">0%</strong><span>roadmap complete</span></div>
+        </div>
+        <div class="progress-track large"><i id="roadmapBar" style="width:0%"></i></div>
+        <div id="roadmapList" class="roadmap-list"></div>
+      </div>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="page" id="practice">
+      <div class="container narrow">
+        <div class="page-heading split-heading">
+          <div><div class="eyebrow">PRACTICE LAB</div><h1>Test what you know.</h1><p id="quizIntro">Five quick questions to check your understanding.</p></div>
+          <div class="quiz-topic" id="quizTopic">Mathematics</div>
+        </div>
+        <form id="quizForm" class="quiz-list"></form>
+        <div id="quizResult" class="quiz-result hidden"></div>
+      </div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section class="page" id="dashboard">
+      <div class="container">
+        <div class="page-heading split-heading">
+          <div><div class="eyebrow">STUDENT DASHBOARD</div><h1>Welcome back, <span id="dashName">Learner</span>.</h1><p>Everything you need to decide your next study move.</p></div>
+          <button class="btn primary" data-page="practice">Practice Now <span>→</span></button>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card"><span>OVERALL PROGRESS</span><strong id="dashProgress">0%</strong><div class="mini-progress"><i id="dashProgressBar" style="width:0%"></i></div></article>
+          <article class="stat-card"><span>COMPLETED TOPICS</span><strong id="dashCompleted">0 / 5</strong><small>roadmap steps</small></article>
+          <article class="stat-card"><span>QUIZ ACCURACY</span><strong id="dashAccuracy">—</strong><small>latest practice</small></article>
+          <article class="stat-card"><span>STUDY STREAK</span><strong id="dashStreak">1 day</strong><small>keep going!</small></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="dash-card chart-card">
+            <div class="card-title"><div><span class="card-label">LEARNING PROGRESS</span><h3>Progress by stage</h3></div><span class="legend-dot"></span></div>
+            <div class="bars" id="progressBars">
+              <div><span>Basics</span><i><b style="width:40%"></b></i><em>40%</em></div>
+              <div><span>Core</span><i><b style="width:25%"></b></i><em>25%</em></div>
+              <div><span>Practice</span><i><b style="width:10%"></b></i><em>10%</em></div>
+              <div><span>Application</span><i><b style="width:0%"></b></i><em>0%</em></div>
+            </div>
+          </article>
+          <article class="next-card">
+            <span class="tag priority">WHAT SHOULD I DO NEXT?</span>
+            <div class="next-number">01</div>
+            <h2 id="nextActivity">Start with the basics</h2>
+            <p id="nextDescription">Build a strong foundation before moving forward.</p>
+            <button class="btn primary" data-page="roadmap">Open My Roadmap <span>→</span></button>
+          </article>
+          <article class="dash-card detail-card">
+            <div class="card-label">CURRENT WEAK TOPIC</div>
+            <h3 id="dashWeak">Core Concepts</h3>
+            <p>Focus here first to get the biggest improvement from your study time.</p>
+          </article>
+          <article class="dash-card detail-card">
+            <div class="card-label">NEXT RECOMMENDED TOPIC</div>
+            <h3 id="dashNext">Core Concepts</h3>
+            <p id="dashNextDesc">Learn the key ideas, then take the knowledge check.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- START HERE MODAL -->
+  <div class="modal hidden" id="startModal">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose">×</button>
+      <div class="eyebrow">STARTING POINT</div>
+      <h2>Let's find your first step.</h2>
+      <p>Tell us a little about what you want to learn.</p>
+      <form id="startForm">
+        <label>Subject<select id="startSubject" required><option value="">Select subject</option><option>Mathematics</option><option>Programming</option><option>Science</option><option>English</option></select></label>
+        <label>Goal<input id="startGoal" type="text" placeholder="e.g. Understand the basics" required></label>
+        <label>Confidence<select id="startConfidence" required><option value="">Select confidence</option><option>Low</option><option>Medium</option><option>High</option></select></label>
+        <label>Available study time<select id="startTime" required><option value="">Select time</option><option>30 minutes</option><option>1 hour</option><option>2 hours</option><option>3+ hours</option></select></label>
+        <button class="btn primary full" type="submit">Generate My Starting Roadmap <span>→</span></button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-inner"><span>© 2026 LearnNext AI</span><span>Built as a functional hackathon MVP</span></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
